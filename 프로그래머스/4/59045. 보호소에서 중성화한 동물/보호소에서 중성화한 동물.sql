@@ -1,0 +1,14 @@
+-- 코드를 입력하세요
+SELECT 
+    ai.ANIMAL_ID,
+    ai.ANIMAL_TYPE,
+    ai.NAME
+FROM ANIMAL_INS ai
+    JOIN ANIMAL_OUTS ao
+        ON ai.ANIMAL_ID = ao.ANIMAL_ID
+WHERE 1=1
+    AND ai.SEX_UPON_INTAKE LIKE 'Intact%'
+    AND ao.SEX_UPON_OUTCOME NOT LIKE 'Intact%'
+    -- AND OR a2.SEX_UPON_OUTCOME LIKE 'Spayed%'
+ORDER BY 
+    ai.ANIMAL_ID ASC;

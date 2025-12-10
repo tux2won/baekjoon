@@ -1,6 +1,21 @@
 -- 코드를 입력하세요
-SELECT o.ANIMAL_ID, o.NAME
-    FROM ANIMAL_OUTS o 
-    LEFT OUTER JOIN ANIMAL_INS i ON o.ANIMAL_ID = i.ANIMAL_ID 
-    WHERE i.ANIMAL_ID IS NULL 
-ORDER BY o.ANIMAL_ID;
+# SELECT
+#     ao.animal_id,
+#     ao.name
+# FROM animal_outs AS ao
+#     LEFT OUTER JOIN animal_ins ai
+#         ON ao.animal_id = ai.animal_id 
+# WHERE ai.animal_id IS NULL 
+# ORDER BY ao.animal_id;
+SELECT
+    ao.animal_id,
+    ao.name
+FROM animal_outs AS ao
+
+EXCEPT
+
+SELECT
+    ai.animal_id,
+    ai.name
+FROM animal_ins AS ai
+ORDER BY animal_id
